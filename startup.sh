@@ -1,11 +1,8 @@
 #!/bin/bash
 echo "==========Start start command=========="
-if [ ! -f /usr/local/bin/ffmpeg ]
-then
-  wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
-  tar xvf ffmpeg-release-amd64-static.tar.xz
-  mv ffmpeg-*-amd64-static/ff* /usr/local/bin/
-fi
+sudo yum install epel-release -y
+sudo rpm -Uvh https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm
+sudo yum install ffmpeg ffmpeg-devel -y
 ffmpeg -version
 echo "==========ffmpeg version above=========="
 python3 -m venv .venv
